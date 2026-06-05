@@ -11,6 +11,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.json({
+    status: "greenTokens Backend is running"
+  });
+});
+
+app.get("/health", (req, res) => {
+  res.json({
+    status: "Ok",
+    timestamp: new Date().toISOString()
+  });
+});
+
 app.post("/optimize", async (req, res) => {
   try {
     const { prompt } = req.body;
