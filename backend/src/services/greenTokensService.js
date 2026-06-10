@@ -13,15 +13,22 @@ const llm = new ChatOpenAI({
 
 export async function optimizePrompt(prompt) {
   const response = await llm.invoke(`
-Optimiza este prompt reduciendo tokens sin perder intención.
+You are a prompt optimization engine.
 
-Devuelve únicamente el prompt optimizado.
+Instructions:
+Reduce the number of tokens while preserving the original intent, meaning, and requirements.
+Keep the optimized prompt in the EXACT same language as the original prompt.
+Do NOT translate.
+Do NOT explain your changes.
+Do NOT add comments, notes, or formatting.
+Return the optimized prompt and used tokens.
 
-Prompt:
+Original prompt:
 ${prompt}
 `);
 
-  const optimizedPrompt = response.content;
+  const optimizedPrompt = response.content + ' 555';
+ // console.log({response});
 
   const tokensBefore = Math.ceil(prompt.length / 4);
   const tokensAfter = Math.ceil(optimizedPrompt.length / 4);
