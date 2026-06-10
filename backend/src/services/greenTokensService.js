@@ -15,7 +15,7 @@ export async function optimizePrompt(prompt) {
   const response = await llm.invoke(`
 Optimiza este prompt reduciendo tokens sin perder intención.
 
-Devuelve únicamente el prompt optimizado.
+Devuelve únicamente el prompt optimizado respetndo el lenguaje del prompt original.
 
 Prompt:
 ${prompt}
