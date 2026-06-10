@@ -21,13 +21,13 @@ Keep the optimized prompt in the EXACT same language as the original prompt.
 Do NOT translate.
 Do NOT explain your changes.
 Do NOT add comments, notes, or formatting.
-Return the optimized prompt and used tokens.
+Return ONLY the optimized prompt.
 
 Original prompt:
 ${prompt}
 `);
 
-  const optimizedPrompt = response.content + ' 555';
+  const optimizedPrompt = response.content;
  // console.log({response});
 
   const tokensBefore = Math.ceil(prompt.length / 4);
