@@ -88,7 +88,7 @@ export default function Home() {
             Green<span>Tokens</span> AI
           </h1>
           <div className={styles.teamInfo}>
-            <span className={styles.badge}>Team: Green Coders</span>
+            <span className={styles.badge}>Team: Green</span>
             <span>
               👤 Bolivar Jimenez, Fabian Bustamente, Jacobo Rojas, Luhana
               Gonzalez
