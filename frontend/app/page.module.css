@@ -1,0 +1,303 @@
+/* app/page.module.css */
+:root {
+  /* Modern Emerald & Slate Palette */
+  --bg-app: #f8fafc;
+  --bg-card: #ffffff;
+  --green-50: #ecfdf5;
+  --green-100: #d1fae5;
+  --green-500: #10b981;
+  --green-600: #059669;
+  --green-700: #047857;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-400: #94a3b8;
+  --slate-600: #475569;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  --shadow-glow: 0 0 20px rgba(16, 185, 129, 0.15);
+}
+
+.container {
+  min-height: 100vh;
+  background-color: var(--bg-app);
+  background-image: radial-gradient(circle at 50% 0%, var(--green-50) 0%, transparent 50%);
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--slate-800);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.header {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--slate-200);
+  padding: 1.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.headerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.appName {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--slate-900);
+  margin: 0;
+  letter-spacing: -0.025em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.appName span {
+  color: var(--green-600);
+}
+
+.teamInfo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: var(--slate-600);
+}
+
+.badge {
+  background-color: var(--green-100);
+  color: var(--green-700);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+/* Main Layout */
+.main {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Cards & Text Areas */
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--slate-600);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--slate-200);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-md);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:focus-within {
+  border-color: var(--green-500);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.textarea {
+  width: 100%;
+  min-height: 280px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--slate-800);
+  resize: vertical;
+  outline: none;
+  font-family: inherit;
+}
+
+.textarea::placeholder {
+  color: var(--slate-400);
+}
+
+.textarea[readonly] {
+  color: var(--slate-600);
+  cursor: default;
+}
+
+/* Metrics */
+.metrics {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.metricChip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--slate-100);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: var(--slate-600);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.metricChip:hover {
+  background-color: var(--green-50);
+  border-color: var(--green-100);
+  color: var(--green-700);
+}
+
+.metricValue {
+  font-weight: 700;
+  color: var(--green-600);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Action Button */
+.buttonContainer {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.button {
+  background: linear-gradient(135deg, var(--green-500) 0%, var(--green-600) 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3), 0 4px 6px -2px rgba(16, 185, 129, 0.1);
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 20px -3px rgba(16, 185, 129, 0.4), 0 6px 8px -2px rgba(16, 185, 129, 0.15);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.button:disabled {
+  background: var(--slate-200);
+  color: var(--slate-400);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Optimization Footer */
+.optimizationFooter {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.optimizationCard {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-card);
+  border: 1px solid var(--green-100);
+  padding: 1.5rem 3rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.optimizationLabel {
+  font-size: 0.900rem;
+  font-weight: 600;
+  color: var(--slate-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.optimizationValue {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--green-600);
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.optimizationValue span {
+  font-size: 1.5rem;
+  color: var(--green-500);
+}
+
+/* 1. Spinner Animation (Replaces Tailwind's animate-spin) */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* 2. Professional Inline Error Banner */
+.errorBanner {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background-color: #fef2f2; /* Light red background */
+  border: 1px solid #fecaca; /* Soft red border */
+  color: #b91c1c;            /* Dark red text */
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.1);
+}
