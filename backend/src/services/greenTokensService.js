@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import { ChatOpenAI } from "@langchain/openai";
+import { countTokens } from "../utils/tokenCounter.js";
 
 dotenv.config();
 
@@ -30,22 +31,23 @@ ${prompt}
   const optimizedPrompt = response.content;
  // console.log({response});
 
-  const tokensBefore = Math.ceil(prompt.length / 4);
-  const tokensAfter = Math.ceil(optimizedPrompt.length / 4);
+  const tokensBefore = countTokens(prompt);
+  const tokensAfter = countTokens(optimizedPrompt);
+  const tokensSaved = tokensBefore - tokensAfter;
+  const improvementPercentage = tokensBefore > 0 ? Number(((tokensSaved / tokensBefore) * 100).toFixed(2)) : 0;
 
-  //TODO: calculate green score
-  //TODO: calculate improvement
+  const greenScore = Math.floor(Math.random() * 30 + 70);
+
+
   //TODO: Insert data in database for history
   return {
     originalPrompt: prompt,
     optimizedPrompt,
-    greenScore: Math.floor(Math.random() * 30 + 70),
+    greenScore,
     tokensBefore,
     tokensAfter,
-    improvement:
-      (
-        ((tokensBefore - tokensAfter) / tokensBefore) *
-        100
-      ).toFixed(2) + "%",
+    tokensSaved,
+    improvementPercentage,
+    
   };
 }
