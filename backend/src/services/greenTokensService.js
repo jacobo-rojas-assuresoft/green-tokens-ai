@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import { ChatOpenAI } from "@langchain/openai";
 import { countTokens } from "../utils/tokenCounter.js";
+import { calculateGreenScore } from "../utils/greenScoreCalculator.js";
 
 dotenv.config();
 
@@ -36,7 +37,7 @@ ${prompt}
   const tokensSaved = tokensBefore - tokensAfter;
   const improvementPercentage = tokensBefore > 0 ? Number(((tokensSaved / tokensBefore) * 100).toFixed(2)) : 0;
 
-  const greenScore = Math.floor(Math.random() * 30 + 70);
+  const greenScore = calculateGreenScore( improvementPercentage, tokensSaved);
 
 
   //TODO: Insert data in database for history
